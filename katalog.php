@@ -1,0 +1,266 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Figma | SketCHIFY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* === Global === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(180deg, #1b0a2a, #2b0f45, #3b1765);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* === Navbar === */
+    .navbar {
+      width: 100%;
+      padding: 10px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background: rgba(30, 11, 48, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .logo img {
+      width: 30px;
+      margin-right: 8px;
+    }
+
+    .logo .highlight {
+      color: #b88ef5;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #eee;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: #c9a6ff;
+    }
+
+    .btn-login {
+      background: #b88ef5;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 22px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-login:hover {
+      background: #a975ff;
+      transform: translateY(-2px);
+    }
+
+    /* === Katalog Section === */
+    .katalog-section {
+      max-width: 1200px;
+      margin-top: 110px;
+      text-align: center;
+      padding: 0 20px 100px;
+    }
+
+    .headline {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .accent {
+      color: #b88ef5;
+    }
+
+    .subtext {
+      color: #c8b7e9;
+      font-size: 1.05rem;
+      margin-bottom: 50px;
+      line-height: 1.6;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* === Grid === */
+    .katalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 25px 20px;
+      text-align: left;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 22px rgba(184, 142, 245, 0.35);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .creator {
+      color: #c9a6ff;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #f3e6ff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background: #b88ef5;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card button:hover {
+      background: #a975ff;
+    }
+
+    /* === Footer === */
+    .footer {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      color: #c7b8e8;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(30, 11, 48, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 25px;
+      }
+
+      .headline {
+        font-size: 2rem;
+      }
+
+      .subtext {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/pencil-tip.png" alt="logo" />
+      <h1>Sket<span class="highlight">CHIFY</span></h1>
+    </div>
+    <nav>
+      <ul>
+       <li><a href="index.php">Beranda</a></li>
+        <li><a href="katalog.php">Katalog</a></li>
+        <li><a href="portofolio.php">Portfolio</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">contact</a></li>
+      </ul>
+    </nav>
+    <?php if(isset($_SESSION['user'])): ?>
+      <div style="display:flex; align-items:center; gap:15px;">
+        <span style="font-weight:600; color:#b689ff;">👤 Hai, <?= htmlspecialchars($_SESSION['user']); ?></span>
+        <a href="katalog.html" class="btn-login" style="background:#a26ef8;">Logout</a>
+      </div>
+<?php else: ?>
+  <a href="auth.php" class="btn-login">➤ Login / Register</a>
+<?php endif; ?>
+  </header>
+
+  <!-- Katalog Section -->
+  <section class="katalog-section">
+    <h1 class="headline">Katalog <span class="accent">Desain Figma</span></h1>
+    <p class="subtext">
+      Jelajahi dan pilih desain UI/UX terbaik karya para kreator di SketCHIFY.<br>
+      Temukan inspirasi, inovasi, dan kualitas desain premium yang siap digunakan untuk proyekmu.
+    </p>
+
+    <div class="katalog-grid">
+      <div class="card"><h3>Landing Page Coffee Shop</h3><p class="creator">by Alya Hafzah</p><p class="price">Rp 80.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Finance Dashboard App</h3><p class="creator">by Indah Iasha</p><p class="price">Rp 120.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Food Delivery UI</h3><p class="creator">by Dwi Annisa</p><p class="price">Rp 95.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Travel Booking App</h3><p class="creator">by Alya Hafzah</p><p class="price">Rp 100.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Music Player UI</h3><p class="creator">by Indah Iasha</p><p class="price">Rp 75.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Education Dashboard</h3><p class="creator">by Dwi Annisa</p><p class="price">Rp 110.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Fitness Tracker App</h3><p class="creator">by Alya Hafzah</p><p class="price">Rp 90.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Weather App UI</h3><p class="creator">by Indah Iasha</p><p class="price">Rp 85.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Movie Streaming UI</h3><p class="creator">by Dwi Annisa</p><p class="price">Rp 115.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Fashion Store App</h3><p class="creator">by Alya Hafzah</p><p class="price">Rp 130.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Task Management UI</h3><p class="creator">by Indah Iasha</p><p class="price">Rp 105.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Recipe App UI</h3><p class="creator">by Dwi Annisa</p><p class="price">Rp 80.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Photography Portfolio</h3><p class="creator">by Alya Hafzah</p><p class="price">Rp 100.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Finance Budget Tracker</h3><p class="creator">by Indah Iasha</p><p class="price">Rp 95.000</p><button>Lihat Detail</button></div>
+      <div class="card"><h3>Interior Design App</h3><p class="creator">by Dwi Annisa</p><p class="price">Rp 120.000</p><button>Lihat Detail</button></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 SketCHIFY. Dibuat dengan 💜 oleh tim kreatif.</p>
+  </footer>
+</body>
+</html>

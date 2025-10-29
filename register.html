@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | SketCHIFY</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/pencil-tip.png" alt="logo" />
+      <h1>Sket<span>CHIFY</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="katalog.html">Katalog</a></li>
+        <li><a href="portofolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Hubungi Kami</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Register Section -->
+  <section class="why-section" style="padding-top: 120px;">
+    <div class="auth-box" style="
+      max-width: 420px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+      padding: 50px;
+      border-radius: 20px;
+      text-align: center;
+    ">
+      <h2 style="margin-bottom: 20px;">Daftar Akun <span style='color:#b689ff;'>SketCHIFY</span></h2>
+      <form action="backend/register.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required style="
+          width: 100%; padding: 12px; border-radius: 10px; border: none;
+          margin-bottom: 15px; font-family: 'Poppins';">
+        <input type="email" name="email" placeholder="Email" required style="
+          width: 100%; padding: 12px; border-radius: 10px; border: none;
+          margin-bottom: 15px; font-family: 'Poppins';">
+        <input type="password" name="password" placeholder="Password" required style="
+          width: 100%; padding: 12px; border-radius: 10px; border: none;
+          margin-bottom: 20px; font-family: 'Poppins';">
+        <button type="submit" name="register" class="btn" style="width:100%;">Daftar</button>
+      </form>
+      <p style="margin-top:15px; color:#ccc;">Sudah punya akun? <a href="login.html" style="color:#b689ff;">Login di sini</a></p>
+    </div>
+  </section>
+
+</body>
+</html>
